@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="برنامه حرفه‌ای نمایش وضعیت آب‌وهوا">
+
+    <title>WEATHER PRO | وضعیت آب‌وهوا</title>
+
+    <!-- اتصال فایل CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- اتصال فایل JavaScript -->
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- سربرگ -->
+        <header class="topbar">
+
+            <div class="brand">
+                <div class="brand-icon">🌦️</div>
+
+                <div>
+                    <h2>WEATHER PRO</h2>
+                    <span>SMART WEATHER DASHBOARD</span>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle" type="button"
+                aria-label="تغییر حالت نمایش">
+                ☀️
+            </button>
+
+        </header>
+
+
+        <!-- بخش جست‌وجو -->
+        <main>
+
+            <section class="welcome-section">
+
+                <div>
+                    <span class="eyebrow">WEATHER DASHBOARD</span>
+                    <h1>آب‌وهوای جهان</h1>
+
+                    <p>
+                        از وضعیت آب‌وهوای شهر موردنظر خود باخبر شوید.
+                    </p>
+                </div>
+
+                <form id="searchForm" class="search-form">
+
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="نام شهر را بنویسید..."
+                        aria-label="نام شهر"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" id="searchBtn">
+                        جست‌وجو
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- پیام برنامه -->
+            <div id="statusMessage" class="status-message" role="status">
+                برنامه آماده است.
+            </div>
+
+
+            <!-- آب‌وهوای فعلی -->
+            <section class="weather-hero">
+
+                <div class="location">
+                    <span>📍</span>
+
+                    <div>
+                        <h2 id="cityName">شبرغان</h2>
+                        <p id="currentDate">در حال دریافت اطلاعات...</p>
+                    </div>
+                </div>
+
+
+                <div class="current-weather">
+
+                    <div class="temperature-info">
+
+                        <div class="temperature">
+                            <span id="temperature">--</span>
+                            <span class="degree">°C</span>
+                        </div>
+
+                        <h3 id="weatherDescription">
+                            در حال دریافت وضعیت هوا...
+                        </h3>
+
+                        <p>
+                            دمای محسوس:
+                            <strong id="feelsLike">--</strong>
+                        </p>
+
+                    </div>
+
+                    <div id="weatherIcon" class="weather-icon">
+                        🌤️
+                    </div>
+
+                </div>
+
+
+                <!-- طلوع و غروب آفتاب -->
+                <div class="sun-info">
+
+                    <div>
+                        <span>🌅</span>
+                        <div>
+                            <small>طلوع آفتاب</small>
+                            <strong id="sunrise">--:--</strong>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span>🌇</span>
+                        <div>
+                            <small>غروب آفتاب</small>
+                            <strong id="sunset">--:--</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- جزئیات آب‌وهوا -->
+            <section class="details-section">
+
+                <div class="section-title">
+                    <span class="eyebrow">WEATHER DETAILS</span>
+                    <h2>جزئیات وضعیت هوا</h2>
+                </div>
+
+                <div class="details-grid">
+
+                    <article class="detail-card">
+                        <div class="detail-icon">💧</div>
+                        <div>
+                            <p>رطوبت هوا</p>
+                            <h3 id="humidity">--</h3>
+                            <small>درصد</small>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <div class="detail-icon">💨</div>
+                        <div>
+                            <p>سرعت باد</p>
+                            <h3 id="windSpeed">--</h3>
+                            <small>کیلومتر در ساعت</small>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <div class="detail-icon">🌡️</div>
+                        <div>
+                            <p>فشار هوا</p>
+                            <h3 id="pressure">--</h3>
+                            <small>هکتوپاسکال</small>
+                        </div>
+                    </article>
+
+                    <article class="detail-card">
+                        <div class="detail-icon">☁️</div>
+                        <div>
+                            <p>پوشش ابر</p>
+                            <h3 id="cloudCover">--</h3>
+                            <small>درصد</small>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- پیش‌بینی چند ساعت آینده -->
+            <section class="forecast-section">
+
+                <div class="section-title">
+                    <span class="eyebrow">HOURLY FORECAST</span>
+                    <h2>پیش‌بینی ساعتی</h2>
+                </div>
+
+                <div id="hourlyForecast" class="hourly-forecast">
+                    <p>در حال دریافت اطلاعات...</p>
+                </div>
+
+            </section>
+
+
+            <!-- پیش‌بینی هفت‌روزه -->
+            <section class="forecast-section">
+
+                <div class="section-title">
+                    <span class="eyebrow">WEEKLY FORECAST</span>
+                    <h2>پیش‌بینی هفت‌روزه</h2>
+                </div>
+
+                <div id="weeklyForecast" class="weekly-forecast">
+                    <p>در حال دریافت اطلاعات...</p>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- پاصفحه -->
+        <footer class="footer">
+
+            <h3>WEATHER PRO</h3>
+
+            <p>پروژه آموزشی نمایش وضعیت آب‌وهوا</p>
+
+            <small>
+                اطلاعات آب‌وهوا از سرویس Open-Meteo دریافت می‌شود.
+            </small>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
